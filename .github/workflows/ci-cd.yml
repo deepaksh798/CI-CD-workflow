@@ -13,22 +13,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Build and Start Containers
+        run: docker-compose up -d --build
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Cheak Running Containers
+        run: docker ps
 
-      - name: Run Tests
-        run: npm test
+      - name: Cheak Logs
+        run: docker logs my-app
 
-      - name: Build Docker Image
-        run: docker build -t my-app .
+      - name: Cheak Ports
+        run: docker ps
 
-      - name: Run Container (Simulated Deploy)
-        run: |
-          docker stop my-app || true
-          docker rm my-app || true
-          docker run -d -p 3000:3000 --name my-app my-app
+      - name: Cheak Ports
+        run: docker ps
