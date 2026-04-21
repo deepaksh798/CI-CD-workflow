@@ -19,11 +19,5 @@ jobs:
       - name: Cheak Running Containers
         run: docker ps
 
-      - name: Cheak Logs
-        run: docker logs my-app
-
-      - name: Cheak Ports
-        run: docker ps
-
-      - name: Cheak Ports
-        run: docker ps
+      - name: Stop Containers
+        run: docker-compose down
