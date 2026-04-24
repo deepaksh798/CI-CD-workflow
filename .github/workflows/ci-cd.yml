@@ -6,8 +6,8 @@ on:
       - dev
 
 jobs:
-  build-test-deploy:
-    runs-on: ubuntu-latest
+  build-test-deploy: # this is the job name
+    runs-on: ubuntu-latest # this is the runner
 
     steps:
       - name: Checkout Code
